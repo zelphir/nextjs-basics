@@ -7,3 +7,9 @@ export default function BlogPost() {
 
   return <div>Blog post - slug: {post}</div>;
 }
+
+BlogPost.layout = ({ asPath }) => ({
+  options: {
+    centerContent: asPath.includes('yeah'),
+  },
+});

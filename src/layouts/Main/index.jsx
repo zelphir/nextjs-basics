@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import { Flex, Box, Container, HStack, Heading, StackDivider } from '@chakra-ui/react';
 
-export default function Layout({ children }) {
+export default function Layout({ children, options }) {
   return (
     <>
       <Head>
@@ -30,7 +30,7 @@ export default function Layout({ children }) {
             </Link>
           </HStack>
         </Box>
-        <Container centerContent>{children}</Container>
+        <Container centerContent={options.centerContent ?? true}>{children}</Container>
       </Flex>
     </>
   );
