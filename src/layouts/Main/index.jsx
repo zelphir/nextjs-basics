@@ -28,9 +28,17 @@ export default function Layout({ children, options }) {
             <Link href="/blog/post">
               <a>Post</a>
             </Link>
+            <Link href="/phonebook">
+              <a>PhoneBook</a>
+            </Link>
+            <Link href="/dashboard">
+              <a>Dashboard</a>
+            </Link>
           </HStack>
         </Box>
-        <Container centerContent={options.centerContent ?? true}>{children}</Container>
+        <Container minW="container.lg" centerContent={options.centerContent ?? true}>
+          {children}
+        </Container>
       </Flex>
     </>
   );
