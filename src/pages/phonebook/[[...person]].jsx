@@ -2,12 +2,17 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { Image, Box, Table, Thead, Tr, Th, Tbody, Td } from '@chakra-ui/react';
 
+import getUsers from '../../data/getUsers';
+
 function excludeFields(key) {
   return !['address', 'website', 'image'].includes(key);
 }
 
 export default function PhoneBook({ data }) {
   const router = useRouter();
+
+  if (!data) return null;
+
   const headers = Object.keys(data[0]).filter(excludeFields);
 
   if (router.query.person) {
@@ -63,6 +68,8 @@ export async function getServerSideProps({ params }) {
   const res = await fetch('https://fakerapi.it/api/v1/persons');
   const { data } = await res.json();
 
+  const users = getUsers();
+  console.log(users[0]);
   return {
     props: {
       person: params.person || null,

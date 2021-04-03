@@ -62,7 +62,7 @@ export default function PhoneBook({ data }) {
 export async function getStaticPaths() {
   return {
     paths: [{ params: { person: false } }], // false param tells next.js to pre-render just the catchAll top route
-    fallback: true,
+    fallback: false,
   };
 }
 
